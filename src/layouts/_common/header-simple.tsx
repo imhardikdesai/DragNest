@@ -15,7 +15,6 @@ import { RouterLink } from 'src/routes/components';
 //
 import { HEADER } from '../config-layout';
 import HeaderShadow from './header-shadow';
-import SettingsButton from './settings-button';
 
 // ----------------------------------------------------------------------
 

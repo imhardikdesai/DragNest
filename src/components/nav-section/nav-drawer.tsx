@@ -1,7 +1,8 @@
 import { Drawer } from '@mui/material';
 
 const NavDrawer = ({ item, drawer }: { item: any; drawer: any }) => {
-  const { title, path, icon, children, disabled, caption, roles } = item;
+  const { title } = item;
+  // const { title, path, icon, children, disabled, caption, roles } = item;
   const { value, onFalse } = drawer;
   return (
     <Drawer
