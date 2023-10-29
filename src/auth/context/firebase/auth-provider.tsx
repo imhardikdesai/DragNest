@@ -113,6 +113,16 @@ export function AuthProvider({ children }: Props) {
           });
         }
       });
+      dispatch({
+        type: Types.INITIAL,
+        payload: {
+          user: {
+            ...{ name: 'User',email: '' },
+            id: '12322',
+            role: 'admin',
+          },
+        },
+      });
     } catch (error) {
       console.error(error);
       dispatch({

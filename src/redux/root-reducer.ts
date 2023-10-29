@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 // slices
 import screenReducer from './slices/screen';
+import templateReducer from './slices/template';
 
 // ----------------------------------------------------------------------
 
@@ -29,4 +30,5 @@ export const rootPersistConfig = {
 
 export const rootReducer = combineReducers({
   screen: screenReducer,
+  template: templateReducer,
 });

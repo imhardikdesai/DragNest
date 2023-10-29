@@ -6,6 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Global CSS
 import 'src/styles/gloabal.css';
+import 'grapesjs/dist/css/grapes.min.css';
 
 // ----------------------------------------------------------------------
 
@@ -23,9 +24,9 @@ import ReduxProvider from 'src/redux/redux-provider';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Minimal UI Kit',
+  title: 'DragNest',
   description:
-    'The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style',
+    'Our platform offers a simple drag-and-drop interface with ready-to-use components and pages. Users can effortlessly create & modify website details to suit their preferences. The platform allows for real-time previews on various screens and the export of generated code.',
   keywords: 'react,material,kit,application,dashboard,admin,template',
   themeColor: '#000000',
   manifest: '/manifest.json',

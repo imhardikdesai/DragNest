@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>GrapesJS Editor</title>
+    <!-- Include GrapesJS CSS and JS -->
+    <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+    <script src="//unpkg.com/grapesjs"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="gjs">
+        <h1>Hello World Component!</h1>
+    </div>
+    <script>
+        const editor = grapesjs.init({
+            container: '#gjs',
+            fromElement: true,
+            width: 'auto',
+            storageManager: false,
+            panels: { defaults: [] }
+        });
+
+    </script>
+</body>
+
+</html>
+
+
