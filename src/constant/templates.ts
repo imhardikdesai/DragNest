@@ -7,6 +7,16 @@ export const Tailwind = (htmlData: string) =>
     <body>
     ${htmlData}
     </body>
+    <script>
+        document.querySelectorAll('section[visual-editor]').forEach(el => {
+          el.addEventListener('click', () => {
+            window.top.postMessage({
+              event: 'click',
+              blockId: el.getAttribute('visual-editor')
+            }, '*');
+          })
+        });
+      </script>
     </html>`;
 
 export const Bootstrap5 = (htmlData: string) =>

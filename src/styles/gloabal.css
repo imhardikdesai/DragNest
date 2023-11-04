@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-.add-icon{
+.add-icon {
     cursor: pointer;
+}
+
+.render-block {
+    border: 1px dotted black !important;
 }

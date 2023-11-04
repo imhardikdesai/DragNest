@@ -1,62 +1,56 @@
-// @mui
+import { useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-// utils
-import { fShortenNumber } from 'src/utils/format-number';
-// types
-import { IUserCard } from 'src/types/user';
-// _mock
-import { _socials } from 'src/_mock';
-// assets
-import { AvatarShape } from 'src/assets/illustrations';
 // components
 import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
 import { Icon } from '@iconify/react';
+import { useDispatch } from 'react-redux';
+import { handlePushBlock } from 'src/redux/slices/template';
+import { v4 as uuidv4 } from 'uuid';
 
-// ----------------------------------------------------------------------
-
-type Props = {
-  block?: any;
+type ItemProps = {
+  bars: string;
+  name: string;
+  blockId: string;
+  previewImageUrl: string;
+  category: string;
+  defaultData: Record<string, any>;
+  config: Record<string, any>;
 };
 
-export default function CodeBlockCard({ block }: Props) {
+type Props = {
+  type: string;
+  item: ItemProps;
+};
+
+export default function CodeBlockCard({ type, item }: Props) {
   const theme = useTheme();
-
-  // const {
-  //   name = 'Nav',
-  //   coverUrl = 'https://i.imgur.com/IXz7LZ5.png',
-  //   avatarUrl = 'https://avatars.githubusercontent.com/u/87645745?v=4',
-  // } = block;
-
-  const name = 'Nav';
-  const coverUrl = 'https://i.imgur.com/IXz7LZ5.png';
+  const [isHovered, setIsHovered] = useState(false);
+  const { bars, previewImageUrl, defaultData, blockId, config } = item;
+  const dispatch = useDispatch();
+  // const htmlData = renderHandleBars(bars, defaultData);
 
   return (
     <Card
       sx={{
         textAlign: 'center',
-        minHeight: '236px',
         marginBlock: '15px',
-        border: '1px solid white',
-        boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      <Box
+        sx={{
+          width: '100%',
+          height: '230px',
+          backgroundColor: isHovered ? '#121212a6' : 'transparent',
+          position: 'absolute',
+          zIndex: 10,
+          transition: 'background-color 0.2s ease-in-out',
+        }}
+      />
       <Box sx={{ position: 'relative' }}>
-        <AvatarShape
-          sx={{
-            left: 0,
-            right: 0,
-            zIndex: 10,
-            mx: 'auto',
-            bottom: -26,
-            position: 'absolute',
-          }}
-        />
         <Icon
           icon="gridicons:add"
           fontSize="3rem"
@@ -64,32 +58,30 @@ export default function CodeBlockCard({ block }: Props) {
             zIndex: 11,
             left: 0,
             right: 0,
-            bottom: -15,
+            top: isHovered ? '45%' : '100%',
             position: 'absolute',
             margin: 'auto',
+            transition: 'top 0.2s ease-in-out', // Add a smooth transition
           }}
           className="add-icon"
+          onClick={() =>
+            dispatch(
+              handlePushBlock({
+                uuid: uuidv4(),
+                blockId,
+                blockType: type,
+                config,
+                defaultData,
+                bars,
+              })
+            )
+          }
         />
-        {/* <Avatar
-          alt={name}
-          src={avatarUrl}
-          sx={{
-            width: 64,
-            height: 64,
-            zIndex: 11,
-            left: 0,
-            right: 0,
-            bottom: -32,
-            mx: 'auto',
-            position: 'absolute',
-          }}
-        /> */}
-
         <Image
-          src={coverUrl}
-          alt={coverUrl}
+          src={previewImageUrl}
+          alt={previewImageUrl}
           ratio="16/9"
-          overlay={alpha(theme.palette.grey[900], 0.48)}
+          overlay={alpha(theme.palette.grey[900], 0.1)}
           sx={{ objectFit: 'contain' }}
         />
       </Box>

@@ -30,7 +30,6 @@ export default function DashboardLayout({ children }: Props) {
   const isMini = settings.themeLayout === 'mini';
 
   const renderNavMini = <NavMini />;
-  // const renderSideBarWide = <SideBarWide />;
 
   const renderHorizontal = <NavHorizontal />;
 
@@ -51,7 +50,7 @@ export default function DashboardLayout({ children }: Props) {
   if (isMini) {
     return (
       <>
-        <Header onOpenNav={nav.onTrue} />
+        {lgUp && <Header onOpenNav={nav.onTrue} />}
 
         <Box
           sx={{
@@ -59,7 +58,8 @@ export default function DashboardLayout({ children }: Props) {
             minHeight: { lg: 1 },
           }}
         >
-          {lgUp ? renderNavMini : renderNavVertical}
+          {renderNavMini}
+          {/* {lgUp ? renderNavMini : renderNavVertical} */}
           <Main>{children}</Main>
         </Box>
       </>

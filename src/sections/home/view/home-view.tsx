@@ -1,28 +1,40 @@
 'use client';
 
+import { useEffect } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import { Box, Container, Typography } from '@mui/material';
 // components
 import { useSettingsContext } from 'src/components/settings';
 import { Template } from 'src/constant/constant';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleSetEditId } from 'src/redux/slices/template';
+import { renderHtmlData } from 'src/utils/utils';
 import { RootState } from 'src/redux/store';
 import MacMockup from 'src/components/common/MacMockup';
 import HomePreviewScreen from '../home-preview-screen';
+import HomeEditModal from './home-edit';
 
 // ----------------------------------------------------------------------
 
 export default function HomeEditorView() {
   const settings = useSettingsContext();
+  const dispatch = useDispatch();
   const { width } = useSelector((state: RootState) => state.screen.current);
   const { blocks } = useSelector((state: RootState) => state.template);
-  const htmlData = blocks.map((block: any) => block.content).join('');
+  const htmlData = renderHtmlData(blocks);
+
+  useEffect(() => {
+    window.addEventListener('message', (e) => {
+      if (e?.data?.blockId) {
+        dispatch(handleSetEditId(e?.data?.blockId));
+      }
+    });
+  }, [dispatch]);
 
   return (
     <Container maxWidth={settings.themeStretch ? false : 'xl'}>
+      <HomeEditModal />
       <Box
         display="flex"
         justifyContent="space-between"
