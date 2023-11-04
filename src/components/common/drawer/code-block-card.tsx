@@ -29,7 +29,6 @@ export default function CodeBlockCard({ type, item }: Props) {
   const [isHovered, setIsHovered] = useState(false);
   const { bars, previewImageUrl, defaultData, blockId, config } = item;
   const dispatch = useDispatch();
-  // const htmlData = renderHandleBars(bars, defaultData);
 
   return (
     <Card
@@ -58,7 +57,7 @@ export default function CodeBlockCard({ type, item }: Props) {
             zIndex: 11,
             left: 0,
             right: 0,
-            top: isHovered ? '45%' : '100%',
+            top: isHovered ? '37%' : '100%',
             position: 'absolute',
             margin: 'auto',
             transition: 'top 0.2s ease-in-out', // Add a smooth transition
@@ -80,9 +79,13 @@ export default function CodeBlockCard({ type, item }: Props) {
         <Image
           src={previewImageUrl}
           alt={previewImageUrl}
-          ratio="16/9"
+          ratio="21/9"
           overlay={alpha(theme.palette.grey[900], 0.1)}
-          sx={{ objectFit: 'contain' }}
+          sx={{
+            img: {
+              objectFit: 'contain',
+            },
+          }}
         />
       </Box>
     </Card>

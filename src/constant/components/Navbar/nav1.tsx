@@ -25,8 +25,7 @@ const block = {
   bars,
   blockId: 'nav1',
   name: 'Navbar #1',
-  previewImageUrl:
-    'https://images.unsplash.com/photo-1682695796954-bad0d0f59ff1?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  previewImageUrl: 'https://i.imgur.com/bs5g3dG.png',
   category: 'header',
   defaultData: {
     name: 'CodeNest',
