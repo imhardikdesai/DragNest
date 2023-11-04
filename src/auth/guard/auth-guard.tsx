@@ -36,6 +36,16 @@ export default function AuthGuard({ children }: AuthGuardProps) {
     } else {
       setChecked(true);
     }
+    // if (!authenticated) {
+    //   const searchParams = new URLSearchParams({ returnTo: window.location.href }).toString();
+
+    //   const loginPath = loginPaths[method];
+    //   const href = `${loginPath}?${searchParams}`;
+
+    //   router.replace(href);
+    // } else {
+    //   setChecked(true);
+    // }
   }, [authenticated, method, router]);
 
   useEffect(() => {

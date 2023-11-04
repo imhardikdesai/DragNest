@@ -10,6 +10,7 @@ const initialState: templateTypes = {
   editId: null,
   editBlock: null,
   editModal: false,
+  exportModal: false,
 };
 
 const slice = createSlice({
@@ -21,6 +22,9 @@ const slice = createSlice({
     },
     handleSetEditModal: (state, action) => {
       state.editModal = action.payload;
+    },
+    handleSetExportModal: (state, action) => {
+      state.exportModal = action.payload;
     },
     handleSetEditId: (state, action) => {
       state.editId = action.payload;
@@ -44,5 +48,10 @@ const slice = createSlice({
 // Reducer
 export default slice.reducer;
 
-export const { handlePushBlock, handleSetEditId, handleSetEditModal, handleUpdateDefaultData } =
-  slice.actions;
+export const {
+  handlePushBlock,
+  handleSetEditId,
+  handleSetEditModal,
+  handleUpdateDefaultData,
+  handleSetExportModal,
+} = slice.actions;

@@ -5,6 +5,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Global CSS
+import 'prismjs/themes/prism-okaidia.css';
 import 'src/styles/gloabal.css';
 import 'grapesjs/dist/css/grapes.min.css';
 

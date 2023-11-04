@@ -8,7 +8,7 @@ import { ScreenType } from 'src/types/screen';
 const initialState: ScreenType = {
   current: {
     type: 'tv',
-    width: 1300,
+    width: 1440,
   },
 };
 
@@ -31,7 +31,7 @@ export const { setPreviewScreen } = slice.actions;
 export const screenTypes = [
   {
     type: 'tv',
-    width: 1300,
+    width: 1440,
   },
   {
     type: 'laptop',

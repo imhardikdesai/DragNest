@@ -3,17 +3,19 @@
 import { useEffect } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 // components
 import { useSettingsContext } from 'src/components/settings';
 import { Template } from 'src/constant/constant';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSetEditId } from 'src/redux/slices/template';
+import { handleSetEditId, handleSetExportModal } from 'src/redux/slices/template';
+import { Icon } from '@iconify/react';
 import { renderHtmlData } from 'src/utils/utils';
 import { RootState } from 'src/redux/store';
 import MacMockup from 'src/components/common/MacMockup';
-import HomePreviewScreen from '../home-preview-screen';
 import HomeEditModal from './home-edit';
+import HomePreviewScreen from '../home-preview-screen';
+import HomeExportModal from './home-export';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +29,11 @@ export default function HomeEditorView() {
   useEffect(() => {
     window.addEventListener('message', (e) => {
       if (e?.data?.blockId) {
-        dispatch(handleSetEditId(e?.data?.blockId));
+        if (e.data.event === 'click') {
+          dispatch(handleSetEditId(e.data.blockId));
+        } else if (e.data.event === 'hover') {
+          console.log(e.data.blockId);
+        }
       }
     });
   }, [dispatch]);
@@ -35,6 +41,7 @@ export default function HomeEditorView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'xl'}>
       <HomeEditModal />
+      <HomeExportModal />
       <Box
         display="flex"
         justifyContent="space-between"
@@ -43,7 +50,13 @@ export default function HomeEditorView() {
         alignItems="center"
       >
         <Typography variant="h4">Web Editor</Typography>
-        <HomePreviewScreen />
+        <Box display="flex" justifyContent="space-between" alignItems="center" gap={2}>
+          <Button onClick={() => dispatch(handleSetExportModal(true))} variant="contained">
+            Export
+            <Icon icon="ph:export-duotone" fontSize="1.5rem" />
+          </Button>
+          <HomePreviewScreen />
+        </Box>
       </Box>
       <Box
         width="100%"

@@ -3,4 +3,5 @@ export type templateTypes = {
   editId: null | string;
   editBlock: any;
   editModal: boolean;
+  exportModal: boolean;
 };

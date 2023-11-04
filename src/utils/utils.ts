@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 
 const section = `
-<section class='border-dashed border border-transparent m-1 hover:border-black cursor-pointer' visual-editor="{{uuid}}">
+<section class='border-style' visual-editor="{{uuid}}">
 {{{content}}}
 </section>
 `;
