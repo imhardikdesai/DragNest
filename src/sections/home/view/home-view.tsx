@@ -13,6 +13,7 @@ import { Icon } from '@iconify/react';
 import { renderHtmlData } from 'src/utils/utils';
 import { RootState } from 'src/redux/store';
 import MacMockup from 'src/components/common/MacMockup';
+import ResetDialog from 'src/components/common/ResetDialog';
 import HomeEditModal from './home-edit';
 import HomePreviewScreen from '../home-preview-screen';
 import HomeExportModal from './home-export';
@@ -50,11 +51,18 @@ export default function HomeEditorView() {
         alignItems="center"
       >
         <Typography variant="h4">Web Editor</Typography>
-        <Box display="flex" justifyContent="space-between" alignItems="center" gap={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          flexDirection={{ xs: 'column', sm: 'row' }}
+          alignItems="center"
+          gap={2}
+        >
           <Button onClick={() => dispatch(handleSetExportModal(true))} variant="contained">
             Export
             <Icon icon="ph:export-duotone" fontSize="1.5rem" />
           </Button>
+          <ResetDialog />
           <HomePreviewScreen />
         </Box>
       </Box>

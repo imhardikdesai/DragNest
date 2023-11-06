@@ -42,6 +42,17 @@ const slice = createSlice({
         ...action.payload,
       };
     },
+    handleDeleteBlock: (state) => {
+      const deleteIndex = state.blocks.findIndex((item) => item.uuid === state.editId);
+      state.blocks.splice(deleteIndex, 1);
+    },
+    handleReset: (state) => {
+      state.blocks = [];
+      state.editId = null;
+      state.editBlock = null;
+      state.editModal = false;
+      state.exportModal = false;
+    },
   },
 });
 
@@ -54,4 +65,6 @@ export const {
   handleSetEditModal,
   handleUpdateDefaultData,
   handleSetExportModal,
+  handleDeleteBlock,
+  handleReset,
 } = slice.actions;

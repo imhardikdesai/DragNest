@@ -35,6 +35,7 @@ export default function CodeBlockCard({ type, item }: Props) {
       sx={{
         textAlign: 'center',
         marginBlock: '15px',
+        border: '1px solid white',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
