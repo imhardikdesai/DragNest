@@ -1,13 +1,15 @@
 import { Drawer, Box, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/redux/store';
 import BLOCK_DATA from 'src/constant/blocksData';
 import CodeBlockCard from '../common/drawer/code-block-card';
+import SearchBlocks from '../common/SearchBlocks';
 
 const NavDrawer = ({ item, drawer }: { item: any; drawer: any }) => {
   const { title } = item;
   const { value, onFalse } = drawer;
-
+  const { results } = useSelector((state: RootState) => state.search);
   const DATA = Object.values(BLOCK_DATA.find((ele) => ele.type === title)?.list || {});
-
   return (
     <Drawer
       open={value}
@@ -24,11 +26,20 @@ const NavDrawer = ({ item, drawer }: { item: any; drawer: any }) => {
         <Typography variant="subtitle1" fontSize="20px">
           {title}
         </Typography>
-        <section>
-          {DATA.map((ele) => (
-            <CodeBlockCard type={title} item={ele} />
-          ))}
-        </section>
+        {title === 'Search' ? (
+          <>
+            <SearchBlocks />
+            {[].concat(...(results || []))?.map((ele: any) => (
+              <CodeBlockCard type={ele.type} item={ele} />
+            ))}
+          </>
+        ) : (
+          <section>
+            {DATA.map((ele) => (
+              <CodeBlockCard type={title} item={ele} />
+            ))}
+          </section>
+        )}
       </Box>
     </Drawer>
   );

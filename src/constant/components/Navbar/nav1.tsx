@@ -2,7 +2,7 @@ const bars = `
 <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <img class='h-10' src='https://i.imgur.com/zgkAumg.png'/>
+      <img class='h-10' src='https://dragnest.vercel.app/logo/logo_single.svg'/>
       <span class="ml-3 text-xl">{{name}}</span>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -25,7 +25,7 @@ const block = {
   bars,
   blockId: 'nav1',
   name: 'Navbar #1',
-  previewImageUrl: 'https://i.imgur.com/bs5g3dG.png',
+  previewImageUrl: 'https://i.imgur.com/rXjBuw8.png',
   category: 'header',
   defaultData: {
     name: 'CodeNest',

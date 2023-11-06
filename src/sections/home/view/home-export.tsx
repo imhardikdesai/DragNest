@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { AppBar, Dialog, DialogTitle, IconButton, Slide, Toolbar, Typography } from '@mui/material';
+import { AppBar, Dialog, DialogTitle, IconButton, Toolbar, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import 'prismjs/themes/prism-okaidia.css';
 import { useDispatch, useSelector } from 'react-redux';
