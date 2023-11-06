@@ -6,7 +6,6 @@ import {
   getAuth,
   signOut,
   signInWithPopup,
-  onAuthStateChanged,
   GoogleAuthProvider,
   GithubAuthProvider,
   TwitterAuthProvider,
@@ -15,7 +14,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
 // config
 import { FIREBASE_API } from 'src/config-global';
 //
@@ -76,53 +75,54 @@ export function AuthProvider({ children }: Props) {
 
   const initialize = useCallback(() => {
     try {
-      onAuthStateChanged(AUTH, async (user) => {
-        if (user) {
-          if (user.emailVerified) {
-            const userProfile = doc(DB, 'users', user.uid);
-
-            const docSnap = await getDoc(userProfile);
-
-            const profile = docSnap.data();
-
-            dispatch({
-              type: Types.INITIAL,
-              payload: {
-                user: {
-                  ...user,
-                  ...profile,
-                  id: user.uid,
-                  role: 'admin',
-                },
-              },
-            });
-          } else {
-            dispatch({
-              type: Types.INITIAL,
-              payload: {
-                user: null,
-              },
-            });
-          }
-        } else {
-          dispatch({
-            type: Types.INITIAL,
-            payload: {
-              user: null,
-            },
-          });
-        }
-      });
       dispatch({
         type: Types.INITIAL,
         payload: {
           user: {
-            ...{ name: 'User',email: '' },
+            ...{ name: 'User', email: 'admin@gmail.com' },
             id: '12322',
             role: 'admin',
+            emailVerified: true,
           },
         },
       });
+      // onAuthStateChanged(AUTH, async (user) => {
+      //   if (user) {
+      //     if (user.emailVerified) {
+      //       const userProfile = doc(DB, 'users', user.uid);
+
+      //       const docSnap = await getDoc(userProfile);
+
+      //       const profile = docSnap.data();
+
+      //       dispatch({
+      //         type: Types.INITIAL,
+      //         payload: {
+      //           user: {
+      //             ...user,
+      //             ...profile,
+      //             id: user.uid,
+      //             role: 'admin',
+      //           },
+      //         },
+      //       });
+      //     } else {
+      //       dispatch({
+      //         type: Types.INITIAL,
+      //         payload: {
+      //           user: null,
+      //         },
+      //       });
+      //     }
+      //   } else {
+      //     dispatch({
+      //       type: Types.INITIAL,
+      //       payload: {
+      //         user: null,
+      //       },
+      //     });
+      //   }
+      // });
     } catch (error) {
       console.error(error);
       dispatch({

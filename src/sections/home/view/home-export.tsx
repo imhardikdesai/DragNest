@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { AppBar, Dialog, DialogTitle, IconButton, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Button,
+  Dialog,
+  DialogTitle,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import 'prismjs/themes/prism-okaidia.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +22,7 @@ import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { renderHtmlData } from 'src/utils/utils';
 import { Template } from 'src/constant/constant';
 import { handleSetExportModal } from 'src/redux/slices/template';
+import { Icon } from '@iconify/react';
 
 // ----------------------------------------------------------------------
 
@@ -27,31 +36,16 @@ export default function HomeExportModal() {
     };
     highlight();
   }, [htmlData]);
-  // const handleDownloadFile = async () => {
-  //   try {
-  //     const response = await fetch('/generate-html-file', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ htmlData }), // Send the HTML data to the server
-  //     });
 
-  //     if (response.ok) {
-  //       // Assuming the server sends a downloadable file as a response
-  //       const blob = await response.blob();
-  //       const url = window.URL.createObjectURL(blob);
-  //       const a = document.createElement('a');
-  //       a.href = url;
-  //       a.download = 'index.html';
-  //       document.body.appendChild(a);
-  //       a.click();
-  //       document.body.removeChild(a);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error downloading file:', error);
-  //   }
-  // };
+  const handleDownloadFile = () => {
+    const blob = new Blob([Template.tailwindExport.content(htmlData)], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'downloaded.html';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   const handleClose = () => dispatch(handleSetExportModal(false));
 
@@ -65,9 +59,10 @@ export default function HomeExportModal() {
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
             Source Code
           </Typography>
-          {/* <Button autoFocus color="inherit" onClick={handleDownloadFile}>
+          <Button variant="contained" onClick={handleDownloadFile}>
             Download File
-          </Button> */}
+            <Icon icon="ph:download-fill" fontSize="1.5rem" style={{ marginLeft: '0.5rem' }} />
+          </Button>
         </Toolbar>
       </AppBar>
       <DialogTitle>
