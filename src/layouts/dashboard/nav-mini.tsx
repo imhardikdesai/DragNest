@@ -7,6 +7,7 @@ import { hideScroll } from 'src/theme/css';
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 // components
 import Logo from 'src/components/logo';
+import { useResponsive } from 'src/hooks/use-responsive';
 import { NavSectionMini } from 'src/components/nav-section';
 //
 import { NAV } from '../config-layout';
@@ -16,6 +17,7 @@ import { useNavData } from './config-navigation';
 
 export default function NavMini() {
   const { user } = useMockedUser();
+  const lgUp = useResponsive('up', 'lg');
 
   const navData = useNavData();
 
@@ -42,6 +44,7 @@ export default function NavMini() {
           width: NAV.W_MINI,
           borderRight: (theme) => `dashed 1px ${theme.palette.divider}`,
           ...hideScroll.x,
+          backgroundColor: lgUp ? 'transparent' : 'black',
         }}
       >
         <Logo sx={{ mx: 'auto', my: 2 }} />

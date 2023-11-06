@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.add-icon {
+    cursor: pointer;
+}
+
+.render-block {
+    border: 1px dotted black !important;
+}

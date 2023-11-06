@@ -59,7 +59,7 @@ export default function Main({ children, sx, ...other }: BoxProps) {
       }}
       {...other}
     >
-      {children}
+      <div className="ml-[5rem]">{children}</div>
     </Box>
   );
 }
