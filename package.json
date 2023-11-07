@@ -30,6 +30,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "autosuggest-highlight": "^3.3.4",
     "axios": "^1.4.0",
+    "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "firebase": "^10.4.0",
     "framer-motion": "^10.12.16",

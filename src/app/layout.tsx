@@ -7,6 +7,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 // Global CSS
 import 'prismjs/themes/prism-okaidia.css';
 import 'src/styles/gloabal.css';
+import 'react-syntax-highlighter/dist/cjs/styles/hljs/monokai';
 import 'grapesjs/dist/css/grapes.min.css';
 
 // ----------------------------------------------------------------------
@@ -63,6 +64,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={primaryFont.className}>
+      <meta name="google-site-verification" content="qJsNhWkO1B4_mj3cOySBP26r3ikPIuIXKtZedl6YKpQ" />
       <body>
         <AuthProvider>
           <ReduxProvider>
