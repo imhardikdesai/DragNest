@@ -80,7 +80,7 @@ export default function HomeEditorView() {
           sx={{
             my: 2,
             width,
-            height: '80vh',
+            height: '100vh',
             marginInline: 'auto',
             overflowY: 'hidden',
             border: () => `solid 1px gray`,

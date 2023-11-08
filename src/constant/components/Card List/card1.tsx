@@ -15,7 +15,7 @@ const bars = `
           <img alt="content" class="object-cover object-center h-full w-full" src="{{card2img}}">
         </div>
         <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">{{card2title}}</h2>
-        <p class="leading-relaxed text-base">{{card1description}}</p>
+        <p class="leading-relaxed text-base">{{card2description}}</p>
         <button class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Read more</button>
       </div>
     </div>
@@ -28,7 +28,7 @@ const block = {
   blockId: 'nav1',
   name: 'CardList #1',
   previewImageUrl: 'https://i.imgur.com/NlUvVDj.png',
-  category: 'header',
+  category: 'card',
   defaultData: {
     card1img: 'https://api-prod-minimal-v510.vercel.app/assets/images/cover/cover_3.jpg',
     card2img: 'https://api-prod-minimal-v510.vercel.app/assets/images/cover/cover_1.jpg',
