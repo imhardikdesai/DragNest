@@ -61,7 +61,7 @@ export function useNavData() {
         items: [
           { title: 'Search', path: paths.dashboard.root, icon: ICONS.search },
           { title: 'Navbar', path: paths.dashboard.root, icon: ICONS.navbar },
-          { title: 'Carousal', path: paths.dashboard.root, icon: ICONS.slider },
+          // { title: 'Carousal', path: paths.dashboard.root, icon: ICONS.slider },
           { title: 'Hero', path: paths.dashboard.root, icon: ICONS.hero },
           { title: 'Card List', path: paths.dashboard.root, icon: ICONS.cardList },
           { title: 'Gallery', path: paths.dashboard.root, icon: ICONS.gallery },

@@ -15,7 +15,13 @@ export default function SearchBlocks() {
 
   return (
     <Box mt={3}>
-      <TextField onChange={handleChange} label="Search Components" fullWidth value={query} />
+      <TextField
+        autoFocus
+        onChange={handleChange}
+        label="Search Components"
+        fullWidth
+        value={query}
+      />
     </Box>
   );
 }
