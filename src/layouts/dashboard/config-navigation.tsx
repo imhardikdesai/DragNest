@@ -47,6 +47,7 @@ const ICONS = {
   gallery: icon('ic_gallery'),
   footer: icon('ic_footer'),
   contact: icon('ic_contact'),
+  team: icon('ic_team'),
 };
 
 // ----------------------------------------------------------------------
@@ -66,6 +67,7 @@ export function useNavData() {
           { title: 'Card List', path: paths.dashboard.root, icon: ICONS.cardList },
           { title: 'Gallery', path: paths.dashboard.root, icon: ICONS.gallery },
           { title: 'Contact US', path: paths.dashboard.root, icon: ICONS.contact },
+          { title: 'Teams', path: paths.dashboard.root, icon: ICONS.team },
           { title: 'Footer', path: paths.dashboard.root, icon: ICONS.footer },
         ],
       },

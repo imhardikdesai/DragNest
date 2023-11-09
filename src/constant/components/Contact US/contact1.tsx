@@ -3,7 +3,7 @@ const bars = `
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{description}}</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
@@ -26,11 +26,11 @@ const bars = `
           </div>
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">{{btnText}}</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-          <a class="text-indigo-500">example@email.com</a>
-          <p class="leading-normal my-5">address</p>
+          <a class="text-indigo-500">{{email}}</a>
+          <p class="leading-normal my-5">{{address}}</p>
           <span class="inline-flex">
             <a class="text-gray-500">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ const block = {
   bars,
   blockId: 'contact1',
   name: 'Contact #1',
-  previewImageUrl: 'https://i.imgur.com/EQB0D8I.png',
+  previewImageUrl: 'https://i.imgur.com/bJPqxvu.png',
   category: 'contact',
   defaultData: {
     description: 'Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.',
@@ -83,7 +83,17 @@ const block = {
       key: 'btnText',
       type: 'string',
       name: 'Button Text',
-    }
+    },
+    {
+      key: 'email',
+      type: 'string',
+      name: 'Email',
+    },
+    {
+      key: 'address',
+      type: 'string',
+      name: 'Address',
+    },
   ],
 };
 
