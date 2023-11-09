@@ -3,6 +3,8 @@ import CardList from './components/Card List';
 import HeroList from './components/Hero';
 import GalleryList from './components/Gallery';
 import FooterList from './components/Footer';
+import ContactList from './components/Contact US';
+import TeamList from './components/Teams';
 
 const BLOCK_DATA = [
   {
@@ -24,6 +26,14 @@ const BLOCK_DATA = [
   {
     type: 'Footer',
     list: FooterList,
+  },
+  {
+    type: 'Contact US',
+    list: ContactList,
+  },
+  {
+    type: 'Teams',
+    list: TeamList,
   },
 ];
 
