@@ -8,7 +8,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import { useSettingsContext } from 'src/components/settings';
 import { Template } from 'src/constant/constant';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSetEditId, handleSetExportModal } from 'src/redux/slices/template';
+import { handleSetEditId, handleSetExportModal, handleSortBlocks } from 'src/redux/slices/template';
 import { Icon } from '@iconify/react';
 import { renderHtmlData } from 'src/utils/utils';
 import { RootState } from 'src/redux/store';
@@ -35,6 +35,8 @@ export default function HomeEditorView() {
         } else if (e.data.event === 'hover') {
           console.log(e.data.blockId);
         }
+      } else if (e?.data?.newOrder) {
+        dispatch(handleSortBlocks(e.data.newOrder || []));
       }
     });
   }, [dispatch]);
