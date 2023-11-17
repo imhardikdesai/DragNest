@@ -46,6 +46,17 @@ const slice = createSlice({
       const deleteIndex = state.blocks.findIndex((item) => item.uuid === state.editId);
       state.blocks.splice(deleteIndex, 1);
     },
+    handleSortBlocks: (state, action) => {
+      state.blocks = action.payload
+        .map((id: string) => {
+          const matchingObject = state.blocks.find((obj) => obj.uuid === id);
+          if (matchingObject) {
+            return matchingObject;
+          }
+          return null;
+        })
+        .filter((obj: any) => obj !== null);
+    },
     handleReset: (state) => {
       state.blocks = [];
       state.editId = null;
@@ -66,5 +77,6 @@ export const {
   handleUpdateDefaultData,
   handleSetExportModal,
   handleDeleteBlock,
+  handleSortBlocks,
   handleReset,
 } = slice.actions;
