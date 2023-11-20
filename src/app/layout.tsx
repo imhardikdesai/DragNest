@@ -29,7 +29,8 @@ export const metadata = {
   title: 'DragNest',
   description:
     'Our platform offers a simple drag-and-drop interface with ready-to-use components and pages. Users can effortlessly create & modify website details to suit their preferences. The platform allows for real-time previews on various screens and the export of generated code.',
-  keywords: 'react,material,kit,application,dashboard,admin,template',
+  keywords:
+    'react, material, kit, application, dashboard, admin, template, web builder, drag-and-drop, responsive design, UI components, website creation, code export, real-time preview, customizable, frontend development, design tool, user-friendly, web development, CSS framework, component library, page builder, UI/UX, developer tool, website customization, drag-and-drop builder, web design, code generation, theme customization, frontend framework, design system, web development tool, website builder, design elements, web components, UI design, frontend design, website editor, layout editor, component-based, code editor, HTML, CSS, JavaScript, responsive layout, design flexibility, website modification, design preview, screen compatibility, design customization, web template, design resources, design flexibility, frontend engineering, web application.',
   themeColor: '#000000',
   manifest: '/manifest.json',
   icons: [
